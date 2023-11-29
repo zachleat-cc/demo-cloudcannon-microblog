@@ -1,4 +1,5 @@
 const path = require("node:path");
+const fs = require("node:fs");
 
 const { DateTime } = require("luxon");
 const pluginBookshop = require("@bookshop/eleventy-bookshop");
@@ -82,8 +83,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLiquidFilter("absoluteUrl", pluginRss.absoluteUrl);
   eleventyConfig.addLiquidFilter("convertHtmlToAbsoluteUrls", pluginRss.convertHtmlToAbsoluteUrls);
 
-	/* Site mounting */
-	eleventyConfig.addPlugin(require("./_includes/marketing-components/eleventySharedConfig.js"));
+	/* Optional site mounting for CloudCannon theme */
+	if(fs.existsSync("./_includes/marketing-components/base.liquid")) {
+		eleventyConfig.addLayoutAlias("base", "marketing-components/base.liquid");
+		eleventyConfig.addPlugin(require("./_includes/marketing-components/eleventySharedConfig.js"));
+	} else {
+		eleventyConfig.addLayoutAlias("base", "default-base.liquid");
+	}
 
 	return {
 		dir: {

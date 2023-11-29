@@ -1,0 +1,50 @@
+---
+metadata:
+  title: Microblog
+  description: A loosely organized stream of posts.
+  helmet: ""
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>{{ metadata.title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="{{ metadata.description }}">
+
+		<style>
+		* {
+			box-sizing: border-box;
+		}
+		html {
+			-moz-text-size-adjust: none;
+			-webkit-text-size-adjust: none;
+			text-size-adjust: none;
+			overflow-y: scroll;
+		}
+		body {
+			font-family: system-ui, sans-serif;
+			margin: 0 auto;
+			padding: 0 .5em;
+			max-width: 37.5rem;
+			min-height: 100vh;
+		}
+		</style>
+		{%- if metadata.helmet %}
+		{{ metadata.helmet }}
+		{%- endif %}
+	</head>
+	<body>
+		<header>
+			<h1>{{ metadata.titleHtml | default: metadata.title }}</h1>
+		</header>
+		<main>
+			{{ content }}
+		</main>
+		<footer>
+			<p>
+				<a href="https://github.com/zachleat-cc/demo-cloudcannon-microblog">Source code on GitHub</a>
+			</p>
+		</footer>
+	</body>
+</html>
