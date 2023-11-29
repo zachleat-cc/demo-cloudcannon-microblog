@@ -1,0 +1,44 @@
+---json
+{
+	"permalink": "feed.xml",
+	"eleventyExcludeFromCollections": true,
+	"layout": false,
+	"metadata": {
+		"title": "CloudCannon Microblog",
+		"subtitle": "Web development thoughts from your friends at CloudCannon!",
+		"language": "en",
+		"url": "https://rare-pineapple.cloudvent.net/"
+	}
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.url }}" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>{{ metadata.title }}</title>
+		<link>{{ metadata.url }}</link>
+		<atom:link href="{{ permalink | absoluteUrl: metadata.url }}" rel="self" type="application/rss+xml" />
+		<description>{{ metadata.subtitle }}</description>
+		<language>{{ metadata.language }}</language>
+		{%- for post in collections.posts | reverse %}
+		{%- assign absolutePostUrl = post.url | absoluteUrl: metadata.url %}
+		<item>
+			<title>{{ post.data.title }}</title>
+			<link>{{ absolutePostUrl }}</link>
+			{%- capture content %}
+				{%- for block in post.data.content_blocks %}
+					{%- bookshop "{{block._bookshop_name}}" bind: block %}
+				{%- endfor %}
+			{% endcapture %}
+			<description>{{ content | convertHtmlToAbsoluteUrls: absolutePostUrl | escape }}</description>
+			<pubDate>{{ post.data.created_date | dateToRfc822 }}</pubDate>
+			{%- for uuid in post.data.author %}
+				{%- assign authors = collections.authors | where: "data.uuid", uuid %}
+				{%- for authorData in authors %}
+					<dc:creator>{{ authorData.data.name }}</dc:creator>
+				{%- endfor %}
+			{%- endfor %}
+			<guid>{{ absolutePostUrl }}</guid>
+		</item>
+		{%- endfor %}
+	</channel>
+</rss>

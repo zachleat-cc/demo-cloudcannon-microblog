@@ -1,0 +1,42 @@
+.c-code-block {
+	display: flex;
+	flex-direction: row-reverse;
+	gap: .25em;
+	min-height: 3.5em;
+}
+.c-code-html .c-code-block {
+	min-height: 4.5em;
+}
+.c-code-javascript .c-code-block {
+	min-height: 6.5em;
+}
+.c-code-lang {
+	font-weight: bold;
+	margin-bottom: 0;
+	padding: 0 .75em;
+	position: absolute;
+	background-color: #272822;
+	color: #fff;
+	transform-origin: top right;
+	transform: rotate(90deg) translate(100%);
+	align-self: flex-start;
+	border-radius: .4em;
+}
+.c-code pre {
+	flex-grow: 1;
+}
+.c-code pre[class] {
+	margin: 0;
+}
+.c-code pre:not([class]) {
+	background-color: #272822;
+	color: #fff;
+	white-space: pre;
+	overflow-x: auto;
+	padding: .5em;
+	border-radius: .4em;
+	margin: 0;
+}
+.c-code-c {
+	margin-top: 1.5em;
+}

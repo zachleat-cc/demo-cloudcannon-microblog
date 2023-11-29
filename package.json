@@ -1,0 +1,28 @@
+{
+	"name": "microblog",
+	"version": "1.0.0",
+	"private": true,
+	"license": "MIT",
+	"scripts": {
+		"build:style": "bookshop-sass --bookshop _component-library --output _site/public/bookshop.css",
+		"dev:style": "bookshop-sass --bookshop _component-library --output _site/public/bookshop.css --watch",
+		"dev:content": "npx @11ty/eleventy --serve --quiet",
+		"start": "run-p dev:*"
+	},
+	"dependencies": {
+		"@11ty/is-land": "^4.0.0",
+		"@zachleat/browser-window": "^1.0.13"
+	},
+	"devDependencies": {
+		"@11ty/eleventy": "^2.0.1",
+		"@11ty/eleventy-img": "^3.1.8",
+		"@11ty/eleventy-plugin-rss": "^1.2.0",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+		"@bookshop/browser": "3.6.5",
+		"@bookshop/eleventy-bookshop": "3.6.5",
+		"@bookshop/eleventy-engine": "3.6.5",
+		"@bookshop/generate": "3.6.5",
+		"@bookshop/sass": "^3.6.5",
+		"npm-run-all": "^4.1.5"
+	}
+}

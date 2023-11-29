@@ -1,0 +1,89 @@
+source: src
+paths:
+  uploads: uploads
+collections_config:
+  authors:
+    path: authors
+    description: Post authors
+    create:
+      path: "[relative_base_path]/{name|slugify}.md"
+    output: false
+    schemas:
+      default:
+        path: _includes/schemas/author.html
+    disable_add_folder: true
+    _enabled_editors:
+      - data
+    icon: face
+    filter:
+      exclude:
+        - authors.11tydata.js
+  posts:
+    path: posts
+    create:
+      extra_data:
+        filename: '{created_date|year}-{created_date|month}-{created_date|day}-{slug}'
+      path: "[relative_base_path]/{filename}.md"
+    output: true
+    filter:
+      base: strict
+    name: Posts
+    description: 'Microblog post entries.'
+    icon: notes
+    singular_name:
+    _editables: {}
+    _enabled_editors:
+      - visual
+    _inputs:
+      author:
+        label: Authors
+        type: multiselect
+        options:
+          values: collections.authors
+          value_key: uuid
+          preview:
+            text:
+            - key: name
+    _select_data: {}
+    _structures: {}
+    disable_add: false
+    disable_add_folder: true
+    disable_file_actions: false
+    schemas:
+      default:
+        path: _includes/schemas/post.html
+_inputs:
+  layout:
+    hidden: true
+  eleventyExcludeFromCollections:
+    hidden: true
+  uuid:
+    instance_value: UUID
+    hidden: true
+  content:
+    type: html
+    cascade: true
+  created_date:
+    type: datetime
+    instance_value: NOW
+    cascade: true
+  tags:
+    type: multiselect
+    options:
+      allow_create: true
+      empty_type: array
+      values:
+        - Accessibility
+        - CSS
+        - HTML
+        - Jamstack
+        - JavaScript
+        - Performance
+        - Progressive Enhancement
+        - Responsive Web Design
+        - Web Design
+_select_data: {}
+_structures: {}
+_editables: {}
+data_config: {}
+timezone: Etc/UTC

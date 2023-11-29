@@ -1,0 +1,24 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tagName
+  filter:
+    - all
+    - authors
+    - posts
+  addAllPagesToCollections: true
+metadata:
+  title: "Microblog → Tags"
+  titleHtml: "<a href=\"/\">Microblog</a> → Tags"
+layout: page.liquid
+permalink: /tags/{{ tagName | slugify }}/
+---
+<h2 class="c-tagged-title">Tagged ‘{{ tagName }}’</h2>
+{% assign collection = collections[ tagName ] %}
+
+<ul role="list" class="c-tagged-list">
+{%- for post in collection reversed %}
+	<li><a href="{{ post.url }}">{{ post.data.created_date | readableDate }}</a></li>
+{%- endfor %}
+</ul>

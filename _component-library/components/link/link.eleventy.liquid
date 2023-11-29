@@ -1,0 +1,23 @@
+<div class="c-link">
+	{%- if url and url != "" %}
+		<is-land on:visible>
+			{%- assign hasValidUrl = url | isValidUrl %}
+			<browser-window mode="{{ browserWindowMode | downcase }}" url="{{ url }}"{% if hasValidUrl %} icon{% endif %} shadow flush>
+				{% if hasValidUrl %}
+					<a href="{{ url }}">
+						{%- if previewType == "screenshot" %}
+						<img src="https://v1.screenshot.11ty.dev/{{ url | url_encode }}/opengraph/" alt="Screenshot of {{ url }}" loading="lazy" decoding="async" fetchpriority="auto" width="1200" height="630">
+						{%- elsif previewType == "opengraph" %}
+						<img src="https://v1.opengraph.11ty.dev/{{ url | url_encode }}/opengraph/" alt="Open Graph image for {{ url }}" loading="lazy" decoding="async" fetchpriority="auto" width="1200" height="630">
+						{%- endif %}
+					</a>
+				{%- else %}
+					<div class="c-link-empty"></div>
+				{%- endif %}
+			</browser-window>
+		</is-land>
+	{%- endif %}
+	{%- if content %}
+		<div class="c-link-c">{{ content }}</div>
+	{%- endif %}
+</div>

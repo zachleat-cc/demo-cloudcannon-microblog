@@ -1,0 +1,40 @@
+<div class="c-meta">
+	{%- if tags and tags.length > 1 %}{% comment %}The `posts` tag is included by default{% endcomment %}
+	<div class="c-tags">
+		<span class="c-tags-label sr-only">Tagged</span>
+		<ul>
+			{%- for tag in tags %}
+			{%- if tag != "posts" %}
+			<li><a href="/tags/{{ tag | slugify }}/">#{{ tag }}</a></li>
+			{%- endif %}
+			{%- endfor %}
+		</ul>
+	</div>
+	{%- endif %}
+
+	<span class="c-time">
+		<span class="c-meta-share">Share:</span>
+		<a href="{{ url | default: page.url }}">{{ created_date | dateToHtml }}</a>
+	</span>
+
+	{%- if author.length > 0 %}
+	<div class="c-author">
+		{%- for uuid in author %}
+			{%- assign authors = collections.authors | where: "data.uuid", uuid %}
+			{%- for authorData in authors %}
+				{%- if authorData.data.website_url %}<a href="{{ authorData.data.website_url }}">{% endif %}
+				{%- if authorData.data.avatar_override_image %}
+					{{ authorData.data.avatar_override_image | embedFavicon: authorData.data.name }}
+				{%- elsif authorData.data.website_url %}
+				<img src="https://v1.indieweb-avatar.11ty.dev/{{ authorData.data.website_url | url_encode }}/" alt="{{ authorData.data.name }}" width="32" height="32" loading="lazy" decoding="async" class="c-avatar">
+				{%- endif %}
+				{%- if authorData.data.website_url %}</a>{% endif %}
+			{%- endfor %}
+		{%- endfor %}
+	</div>
+	{%- else -%}
+	<div class="c-author">
+		<img src="/public/default-avatar.png" alt="Default avatar" loading="lazy" decoding="async" width="200" height="200" class="c-avatar">
+	</div>
+	{%- endif %}
+</div>

@@ -1,0 +1,18 @@
+<div class="c-code c-code-{{ code_language | slugify }}">
+	<div class="c-code-block">
+	{%- if code_language %}
+		<p class="c-code-lang">{{ code_language }}</p>
+	{%- endif %}
+	{%- if env_bookshop_live %}
+		<pre><code>{{ code_block | escape }}</code></pre>
+	{%- elsif code_language %}
+		{{ code_block | syntaxHighlight: code_language }}
+	{%- else %}
+		<pre><code>{{ code_block | escape }}</code></pre>
+	{%- endif %}
+	</div>
+
+	{%- if content %}
+		<div class="c-link-c">{{ content }}</div>
+	{%- endif %}
+</div>

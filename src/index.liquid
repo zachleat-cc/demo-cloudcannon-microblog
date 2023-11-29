@@ -1,0 +1,24 @@
+---
+layout: page.liquid
+pagination:
+  data: "collections.posts"
+  size: 10
+  reverse: true
+---
+{%- for post in pagination.items %}
+	{%- for block in post.data.content_blocks %}
+		{%- bookshop "{{block._bookshop_name}}" bind: block %}
+	{%- endfor %}
+
+	{%- assign url = post.url %}
+	{%- assign author = post.data.author %}
+	{%- assign created_date = post.data.created_date %}
+	{%- include "metadata.liquid" %}
+{%- endfor %}
+
+<nav>
+	<ol class="c-nav">
+		<li>&lt; {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
+		<li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %} &gt;</li>
+	</ol>
+</nav>

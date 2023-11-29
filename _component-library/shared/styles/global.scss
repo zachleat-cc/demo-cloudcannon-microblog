@@ -1,0 +1,102 @@
+main {
+	--rhythm: 2rem;
+}
+@media (min-width: 37.5em) { /* 600px */
+	main {
+		--rhythm: 3rem;
+	}
+}
+
+main > * {
+	margin: 0 auto;
+	max-width: 37.5rem; /* 600px /16 */
+}
+
+.c-microblog > * {
+	margin-top: var(--rhythm);
+}
+.c-microblog > .c-meta + * {
+	margin-top: calc(4 * var(--rhythm));
+}
+
+blockquote {
+	font-family: Georgia, serif;
+	font-size: 1.125em; /* 18px /16 */
+	font-style: italic;
+	margin: 0;
+}
+
+.sr-only {
+	position: absolute;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+/* Metadata */
+.c-meta {
+	font-size: 0.875em; /* 14px /16 */
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.c-author {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: .25em;
+}
+
+.c-avatar {
+	width: 2em;
+	height: 2em;
+	border-radius: 50%;
+	object-fit: contain;
+}
+
+.c-time {
+	display: block;
+	color: #666;
+	border: none;
+	padding: 0;
+}
+
+.c-meta-share {
+	margin-right: .5em;
+}
+
+/* Navigation */
+.c-nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	gap: 1em;
+	font-style: italic;
+	justify-content: space-between;
+}
+
+/* Tags */
+.c-tags,
+.c-tags ul {
+	display: flex;
+	gap: 1em;
+	align-items: center;
+	justify-content: flex-end;
+}
+.c-tags ul {
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+}
+
+/* Tag pages */
+.c-tagged-title {
+	font-size: 2em;
+}
+.c-tagged-list {
+	font-size: 1.5em;
+}
