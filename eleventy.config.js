@@ -21,6 +21,7 @@ module.exports = function (eleventyConfig) {
 		"public/*": "/public/",
 		"node_modules/@11ty/is-land/is-land.js": "/public/is-land.js",
 		"node_modules/@zachleat/browser-window/browser-window.js": "/public/browser-window.js",
+		"node_modules/prismjs/themes/prism-okaidia.css": "/public/prism-okaidia.css",
 	});
 
 	/* Images */
@@ -79,9 +80,9 @@ module.exports = function (eleventyConfig) {
 
 	/* RSS Filters for Liquid */
 	eleventyConfig.addLiquidFilter("dateToRfc3339", pluginRss.dateToRfc3339);
-  eleventyConfig.addLiquidFilter("dateToRfc822", pluginRss.dateToRfc822);
-  eleventyConfig.addLiquidFilter("absoluteUrl", pluginRss.absoluteUrl);
-  eleventyConfig.addLiquidFilter("convertHtmlToAbsoluteUrls", pluginRss.convertHtmlToAbsoluteUrls);
+	eleventyConfig.addLiquidFilter("dateToRfc822", pluginRss.dateToRfc822);
+	eleventyConfig.addLiquidFilter("absoluteUrl", pluginRss.absoluteUrl);
+	eleventyConfig.addLiquidFilter("convertHtmlToAbsoluteUrls", pluginRss.convertHtmlToAbsoluteUrls);
 
 	/* Optional site mounting for CloudCannon theme */
 	if(fs.existsSync("./_includes/marketing-components/base.liquid")) {
