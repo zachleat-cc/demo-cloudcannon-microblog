@@ -84,3 +84,12 @@
 .c-tagged-list {
 	font-size: 1.5em;
 }
+
+/* Search */
+.c-search {
+	margin: 2em 0;
+	min-height: 3.2em; /* 51.2px /16 */
+}
+.c-search:first-child {
+	margin-top: 0;
+}

@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
 npx @bookshop/generate
+npm run search-index

@@ -15,6 +15,5 @@
 Stretch goals:
 
 * Image gallery post type
-* Search
 
 -->
