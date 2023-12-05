@@ -4,6 +4,7 @@ pagination:
   data: "collections.posts"
   size: 10
   reverse: true
+  generatePageOnEmptyData: true
 ---
 {%- for post in pagination.items %}
 	{%- for block in post.data.content_blocks %}
