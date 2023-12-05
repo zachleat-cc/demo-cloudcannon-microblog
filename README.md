@@ -1,6 +1,7 @@
 # demo-cloudcannon-microblog
 
-**Check out the [companion video to this project: Live Editing an Eleventy Project in CloudCannon with Bookshop](https://www.youtube.com/watch?v=AsWt6BTjzyk)**
+* **Check out the [companion video to this project: Live Editing an Eleventy Project in CloudCannon with Bookshop](https://www.youtube.com/watch?v=AsWt6BTjzyk)**
+* [Demo](https://rare-pineapple.cloudvent.net/)
 
 ## Features
 
