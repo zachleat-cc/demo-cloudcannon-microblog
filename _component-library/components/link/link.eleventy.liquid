@@ -2,7 +2,7 @@
 <div class="c-link">
 	{%- if url and url != "" %}
 		<is-land on:visible>
-			<browser-window mode="{{ browserWindowMode | downcase }}" url="{{ url }}"{% if url | isValidUrl %} icon{% endif %} shadow flush>
+			<browser-window mode="{{ browserWindowMode | downcase }}" url="{{ url }}"{% unless env_bookshop_live %} icon{% endunless %} shadow flush>
 				{% if url | isValidUrl %}
 					<a href="{{ url }}">
 						{%- if previewType == "screenshot" %}
