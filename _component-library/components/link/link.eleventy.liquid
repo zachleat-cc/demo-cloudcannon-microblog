@@ -2,9 +2,8 @@
 <div class="c-link">
 	{%- if url and url != "" %}
 		<is-land on:visible>
-			{%- assign hasValidUrl = url | isValidUrl %}
-			<browser-window mode="{{ browserWindowMode | downcase }}" url="{{ url }}"{% if hasValidUrl %} icon{% endif %} shadow flush>
-				{% if hasValidUrl %}
+			<browser-window mode="{{ browserWindowMode | downcase }}" url="{{ url }}"{% if url | isValidUrl %} icon{% endif %} shadow flush>
+				{% if url | isValidUrl %}
 					<a href="{{ url }}">
 						{%- if previewType == "screenshot" %}
 						<img src="https://v1.screenshot.11ty.dev/{{ url | url_encode }}/opengraph/" alt="Screenshot of {{ url }}" loading="lazy" decoding="async" fetchpriority="auto" width="1200" height="630">
