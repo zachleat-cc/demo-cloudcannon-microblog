@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"scripts": {
 		"build:style": "bookshop-sass --bookshop _component-library --output _site/public/bookshop.css",
-		"dev:style": "bookshop-sass --bookshop _component-library --output _site/public/bookshop.css --watch",
+		"dev:style": "npm run build:style -- --watch",
 		"dev:content": "npx @11ty/eleventy --serve --quiet",
 		"start": "run-p dev:*",
 		"search-index": "npx -y pagefind --site _site"
