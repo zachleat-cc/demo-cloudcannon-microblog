@@ -13,6 +13,7 @@
 * Tagged posts and automated independent tag pages.
 * Home page stream includes pagination.
 * RSS feed at `/feed.xml`
+* Search via [Pagefind](https://pagefind.app/)
 
 ## Usage
 
