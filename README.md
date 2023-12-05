@@ -1,5 +1,7 @@
 # demo-cloudcannon-microblog
 
+**Check out the [companion video to this project: Live Editing an Eleventy Project in CloudCannon with Bookshop](https://www.youtube.com/watch?v=AsWt6BTjzyk)**
+
 ## Features
 
 * Supports live editing via CloudCannon. Included content block types:
