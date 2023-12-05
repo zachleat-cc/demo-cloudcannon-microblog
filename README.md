@@ -9,6 +9,17 @@
 * Multiple author support with [IndieWeb avatars](https://www.11ty.dev/docs/services/indieweb-avatar/) (with override image option).
 * Tagged posts and automated independent tag pages.
 * Home page stream includes pagination.
+* RSS feed at `/feed.xml`
+
+## Usage
+
+Requires [Node.js](https://nodejs.org/en).
+
+```
+npm install
+npm run search-index
+npm start
+```
 
 <!--
 
