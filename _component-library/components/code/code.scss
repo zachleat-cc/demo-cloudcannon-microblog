@@ -40,3 +40,7 @@
 .c-code-c {
 	margin-top: 1.5em;
 }
+.c-code code[class*="language-"],
+.c-code pre[class*="language-"] {
+	tab-size: 2;
+}
